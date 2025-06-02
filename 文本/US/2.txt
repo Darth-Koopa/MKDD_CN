@@ -1,0 +1,150 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 3
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x08
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = [,5a,2]
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x20400	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= The Memory Card in Slot A\n
+	+ is corrupted and\n
+	+ needs to be formatted.\n
+	+ Would you like to format\n
+	+ the Memory Card now?
+     1	= The Memory Card\n
+	+ is corrupted and\n
+	+ must be formatted.
+     2	= This game data is corrupted\n
+	+ and cannot be loaded.\n
+	+ If you save new game data,\n
+	+ it will overwrite the corrupted data.
+     3	= The Memory Card in Slot A\n
+	+ is damaged and cannot be used.\n
+	+ Continue without saving game data?
+     4	= The Memory Card\n
+	+ is damaged and\n
+	+ cannot be used.
+     5	= Insert a different Memory Card into\n
+	+ Slot A and press the A Button.
+     6	= Formatting the Memory Card\n
+	+ will erase all previously saved data.\n
+	+ Do you want to format?
+     7	= Formatting.\n
+	+ Do not touch the Memory Card\n
+	+ or the POWER Button.
+     8	= Saving game data.\n
+	+ Do not touch the Memory Card\n
+	+ or the POWER Button.
+     9	= This ghost data is corrupted\n
+	+ and cannot be loaded.\n
+	+ Go to the Memory Card Management\n
+	+ screen and delete this ghost data.
+     a	= Would you like\n
+	+ to load?
+     b	= The ghost data\n
+	+ could not be loaded.
+     c	= Overwrite?
+     d	= Would you like\n
+	+ to save?
+     e	= Saving ghost data.\n
+	+ Do not touch the Memory Card\n
+	+ or the POWER Button.
+     f	= Insert a Memory Card into Slot A\n
+	+ and press the A Button.
+    10	= Load complete.
+    11	= Data has been\n
+	+ created.
+    12	= Would you like to create data for\n
+	+ MARIO KART: DOUBLE DASH!!\n
+	+ on the Memory Card in Slot A?
+    13	= Now creating data...\n
+	+ Do not touch the Memory Card\n
+	+ or the POWER Button.
+    14	= The Memory Card\n
+	+ could not be formatted.
+    15	= Data could not be created.
+    16	= An error may have\n
+	+ occurred during saving.
+    17	= No Memory Card found in Slot A. \n
+	+ Continue without saving game data?
+    18	= The Memory Card in Slot A does not\n
+	+ contain the save file you last used.\n
+	+ Continue without saving game data?
+    19	= There is\n
+	+ no ghost data\n
+	+ that can be loaded.
+    1a	= Continue without saving?
+    1b	= There's not enough empty space\n
+	+ on the Memory Card in Slot A.\n
+	+ This game requires 1 file and\n
+	+ 3 empty blocks to save.\n
+	+ Manage Memory Card?
+    1c	= There's not enough\n
+	+ empty space.\n
+	+ Ghost data requires\n
+	+ 1 file and 5 blocks\n
+	+ to save.
+    1d	= The device is\n
+	+ not a Memory Card.
+    1e	= The device inserted in Slot A\n
+	+ is not a Memory Card.\n
+	+ Continue without saving game data?
+    1f	= Saving complete.
+    20	= There are\n
+	+ too many files.\n
+	+ Ghost data requires\n
+	+ 1 file and 5 blocks\n
+	+ to save.
+    21	= There are too many files\n
+	+ on the Memory Card in Slot A.\n
+	+ This game requires 1 file and\n
+	+ 3 empty blocks to save.\n
+	+ Manage Memory Card?
+    22	= The Memory Card\n
+	+ is not compatible\n
+	+ with this game.
+    23	= The Memory Card in Slot A\n
+	+ does not correspond to this game.\n
+	+ Continue without saving game data?
+

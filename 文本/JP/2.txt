@@ -1,0 +1,153 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 3
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x08
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = [,64,3]
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x20400	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= スロットAのメモリーカードは\n
+	+ データがこわれているので\n
+	+ 初期化が必要です。\n
+	+ 初期化しますか？
+     1 [,5a,3] = データがこわれているので\n
+	+ 初期化が必要です。
+     2	= ゲームデータがこわれているので\n
+	+ ロードできませんでした。\n
+	+ ゲーム中にデータがセーブされると\n
+	+ こわれたデータは上書きされます。
+     3	= スロットAのメモリーカードは\n
+	+ こわれているので使用できません。\n
+	+ ゲームデータをセーブできませんが\n
+	+ ゲームをつづけますか？
+     4 [,5a,3] = こわれているので\n
+	+ 使用できません。
+     5	= スロットAに別のメモリーカードを\n
+	+ 入れてAボタンをおしてください。
+     6	= 初期化するとメモリーカードの\n
+	+ データはすべて消えますが\n
+	+ よろしいですか？
+     7	= メモリーカードを初期化しています。\n
+	+ メモリーカードや本体のパワーボタンに\n
+	+ さわらないでください。
+     8	= ゲームデータをセーブしています。\n
+	+ メモリーカードや本体のパワーボタンに\n
+	+ さわらないでください。
+     9	= ゴーストデータがこわれているので\n
+	+ ロードできませんでした。\n
+	+ こわれたデータは本体の\n
+	+ メモリーカード画面で消してください。
+     a	= ロードしますか？
+     b	= ゴーストデータを\n
+	+ ロードできませんでした。
+     c	= うわがきしますか？
+     d	= セーブしますか？
+     e	= ゴーストデータをセーブしています。\n
+	+ メモリーカードや本体のパワーボタンに\n
+	+ さわらないでください。
+     f	= スロットAにメモリーカードを入れて\n
+	+ Aボタンをおしてください。
+    10	= ロードしました。
+    11	= データをつくりました。
+    12	= スロットAのメモリーカードに\n
+	+ 「マリオカート　ダブルダッシュ！！」の\n
+	+ データをつくりますか？
+    13	= 「マリオカート　ダブルダッシュ！！」の\n
+	+ データをつくっています。\n
+	+ メモリーカードや本体のパワーボタンに\n
+	+ さわらないでください。
+    14	= 初期化に失敗した可能性があります。
+    15	= データをつくるのに\n
+	+ 失敗した可能性があります。
+    16	= セーブに失敗した可能性があります。
+    17	= スロットAに\n
+	+ メモリーカードがありません。\n
+	+ ゲームデータをセーブできませんが\n
+	+ ゲームをつづけますか？
+    18	= スロットAのメモリーカードには\n
+	+ さいごにセーブした\n
+	+ データがありません。\n
+	+ ゲームデータをセーブできませんが\n
+	+ ゲームをつづけますか？
+    19 [,5a,3] = ロードできる\n
+	+ ゴーストデータが\n
+	+ ありません。
+    1a	= セーブできませんが\n
+	+ ゲームをつづけますか？
+    1b	= スロットAのメモリーカードに\n
+	+ 空き容量がありません。\n
+	+ このゲームをセーブするには\n
+	+ ファイル1つと3ブロックの\n
+	+ 空き容量が必要です。\n
+	+ メモリーカードを整理しますか？
+    1c [,5a,3] = 空き容量がありません。\n
+	+ ゴーストデータを\n
+	+ セーブするには\n
+	+ ファイル1つと5ブロックの\n
+	+ 空き容量が必要です。
+    1d [,5a,3] = メモリーカード以外の\n
+	+ ものがささっています。
+    1e	= スロットAにはメモリーカード以外の\n
+	+ ものがささっています。 \n
+	+ ゲームデータをセーブできませんが\n
+	+ ゲームをつづけますか？
+    1f	= セーブしました。
+    20 [,5a,3] = ファイルが多すぎます。\n
+	+ ゴーストデータを\n
+	+ セーブするには\n
+	+ ファイル1つと5ブロックの\n
+	+ 空き容量が必要です。
+    21	= スロットAのメモリーカードは\n
+	+ ファイルが多すぎます。\n
+	+ このゲームをセーブするには\n
+	+ ファイル1つと3ブロックの\n
+	+ 空き容量が必要です。\n
+	+ メモリーカードを整理しますか？
+    22 [,5a,3] = このゲームに\n
+	+ 対応していません。
+    23	= スロットAのメモリーカードは\n
+	+ このゲームに対応していません。\n
+	+ ゲームデータをセーブできませんが\n
+	+ ゲームをつづけますか？
+
