@@ -1,0 +1,101 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 3
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x08
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = [,64,3]
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x50400	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= 正在连接到LAN,\n
+	+ 你确认要继续吗？
+     1	= 正在连接LAN…\n
+	+ 请稍等片刻。
+     2	= 要断开LAN连接吗？
+     3	= 正在断开LAN连接…\n
+	+ 请不要触碰LAN电缆或\n
+	+ 主机的电源按钮。
+     4	= 发生了通信错误。\n
+	+ \n
+	+ 正在断开LAN连接…\n
+	+ 请不要触碰LAN电缆或\n
+	+ 主机的电源按钮。
+     5	= 请确认LAN电缆的连接等。\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     6	= 请确认只有GameCube已连接到LAN\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     7	= 无法与其他GameCube正常通信\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     8	= 请检查路由器等的设置。\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     9	= 正在寻找其他GameCube…\n
+	+ \n
+	+ \z{8ff,10096}\z{601,0}
+     a	= 无法连接到LAN。\n
+	+ 请确认LAN电缆的连接等。\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     b	= 无法连接到LAN。\n
+	+ 请确认只有GameCube已连接到LAN。\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     c	= 无法连接到LAN。\n
+	+ 请检查路由器等的设置。\n
+	+ 有关详细信息,请参考\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的使用说明书。
+     d	= \z{7ff,500}\z{8ff,10096}\z{601,0}\z{8ff,10064}台\n
+	+ \z{7ff,400}GameCube已连接。\n
+	+ 想用这个台数游玩,\n
+	+ 请按下开始键。
+

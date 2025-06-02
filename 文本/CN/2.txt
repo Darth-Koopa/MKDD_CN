@@ -1,0 +1,143 @@
+#BMG  <<<  The first 4 characters '#BMG' are the magic for a BMG text file.
+#     <<<  Don't remove them!
+#
+# Details about BMG text files are available in the Web:
+#  * Syntax and Semantics: https://szs.wiimm.de/doc/bmg/text
+#  * The BMG file format:  https://szs.wiimm.de/r/wiki/BMG
+#
+#
+#------------------------------------------------------------------------------
+# All parameters begin with '@'. Unknown parameters are ignored on scanning.
+
+# The endianness of binary files: 0=big endian (default), 1=little endian.
+# Little endian is only tested for encoding UTF-8 (need examples of analysis).
+@ENDIAN = 0
+
+# If 1, then enable legacy (GameCube) mode for old binary BMG files.
+# If enabled, ENCODING is always CP1252.
+@LEGACY = 0
+
+# Define encoding of BMG: 1=CP1252, 2=UTF-16/be, 3=Shift-JIS, 4=UTF-8
+@ENCODING = 3
+
+# Create »MID1« section: 0=off, 1=on
+@BMG-MID = 0
+
+# Size of each element of section 'INF1' (MKW=8).
+# This setting has impact to attributes and MKW features.
+@INF-SIZE = 0x08
+
+# Default attribute values for this BMG (MKW=[1])
+@DEFAULT-ATTRIBS = [,64,3]
+
+# Use MKW specific color names: 0=off, 1=auto, 2=on
+@COLOR-NAMES = 1
+
+# Use MKW messages and track names: 0=off, 1=auto, 2=on
+@MKW-MESSAGES = 1
+
+#
+#------------------------------------------------------------------------------
+
+# This part defines values for unknown parameters of section headers.
+@UNKNOWN-INF32-0C =    0x20400	# 32 bit value of section INF1 offset 0x0c
+@UNKNOWN-MID16-0A =     0x1000	# 16 bit value of section MID1 offset 0x0a
+@UNKNOWN-MID32-0C =          0	# 32 bit value of section MID1 offset 0x0c
+
+#
+#------------------------------------------------------------------------------
+
+     0	= 插槽A的存储卡\n
+	+ 数据已损坏,需要\n
+	+ 进行初始化。\n
+	+ 是否初始化？
+     1 [,5a,3] = 数据已损坏,需要\n
+	+ 进行初始化。
+     2	= 游戏数据已损坏,\n
+	+ 无法加载。\n
+	+ 游戏过程中,数据保存时\n
+	+ 损坏的数据会被覆盖。
+     3	= 插槽A的存储卡已\n
+	+ 损坏,无法使用。\n
+	+ 无法保存游戏数据,\n
+	+ 是否继续游戏？
+     4 [,5a,3] = 数据已损坏,\n
+	+ 无法使用。
+     5	= 请插入另一张存储卡,\n
+	+ 然后按A键。
+     6	= 初始化后,存储卡中的\n
+	+ 所有数据将被清除,\n
+	+ 你确认继续吗？
+     7	= 正在初始化存储卡。\n
+	+ 请勿触碰存储卡或\n
+	+ 主机的电源按钮。
+     8	= 正在保存游戏数据。\n
+	+ 请勿触碰存储卡或\n
+	+ 主机的电源按钮。
+     9	= 车影数据已损坏,\n
+	+ 无法加载。\n
+	+ 请在主机的存储卡界面\n
+	+ 删除损坏的数据。
+     a	= 是否加载？
+     b	= 无法加载车影数据。
+     c	= 是否覆盖？
+     d	= 是否保存？
+     e	= 正在保存车影数据。\n
+	+ 请勿触碰存储卡或\n
+	+ 主机的电源按钮。
+     f	= 请将存储卡插入\n
+	+ 插槽A并按下A键。
+    10	= 已加载。
+    11	= 已创建数据。
+    12	= 你要在插槽A的存储卡中\n
+	+ 创建「马力欧卡丁车:双重冲击！！」\n
+	+ 的数据吗？
+    13	= 正在创建\n
+	+ 「马力欧卡丁车:双重冲击！！」\n
+	+ 的数据。\n
+	+ 请勿触碰存储卡或主机的电源按钮。
+    14	= 初始化可能失败。
+    15	= 创建数据时\n
+	+ 可能失败。
+    16	= 保存数据时可能失败。
+    17	= 插槽A中没有\n
+	+ 插入存储卡。\n
+	+ 无法保存游戏数据,\n
+	+ 是否继续游戏？
+    18	= 插槽A的存储卡中没有\n
+	+ 上次保存的数据。\n
+	+ 无法保存游戏数据,\n
+	+ 是否继续游戏？
+    19 [,5a,3] = 没有可以加载的\n
+	+ 车影数据。
+    1a	= 无法保存,\n
+	+ 是否继续游戏？
+    1b	= 插槽A的存储卡没有\n
+	+ 足够的空闲空间。\n
+	+ 该游戏需要\n
+	+ 1个文件和3格空间\n
+	+ 才能保存。\n
+	+ 是否整理存储卡？
+    1c [,5a,3] = 没有足够的空闲空间。\n
+	+ 车影数据需要\n
+	+ 1个文件和5格空间。
+    1d [,5a,3] = 插入了非存储卡设备。
+    1e	= 插槽A插入了非存储卡设备,\n
+	+ 无法保存游戏数据。 \n
+	+ 是否继续游戏？
+    1f	= 保存成功。
+    20 [,5a,3] = 文件太多。\n
+	+ 车影数据需要\n
+	+ 1个文件和5格空间。
+    21	= 插槽A的存储卡\n
+	+ 中的文件过多。\n
+	+ 该游戏需要\n
+	+ 1个文件和3格空间。\n
+	+ 是否整理存储卡？
+    22 [,5a,3] = 此游戏不兼容\n
+	+ 该存储卡。
+    23	= 插槽A的存储卡不\n
+	+ 兼容此游戏。\n
+	+ 无法保存游戏数据,\n
+	+ 是否继续游戏？
+
